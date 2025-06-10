@@ -1,0 +1,11 @@
+name: issueAction
+on: 
+    issues:
+        types:
+            opened
+jobs:
+    trigger-on-issues:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo-context
+              run: echo "${{ toJson(github.event) }}""

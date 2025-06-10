@@ -1,4 +1,4 @@
-name: issueAction
+name: Issues Workflow
 on: 
   issues:
     types: [opened]

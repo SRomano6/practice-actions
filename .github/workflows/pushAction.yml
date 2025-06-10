@@ -1,0 +1,21 @@
+name: Push Workflow
+on: push
+jobs: 
+    test-code: 
+        runs-on: ubuntu-latest
+        steps: 
+            - name: get code
+              uses: actions/checkout@v3
+            - name: install dependencies
+              run: npm ci
+            - name: run lint
+              run: npm run lint
+            - name: run test
+              run: npm test
+    build-code:
+        runs-on: ubuntu-latest
+        needs: test-code
+        steps:
+            - name: build code
+              run: npm ci
+        
